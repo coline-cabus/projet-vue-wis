@@ -8,13 +8,14 @@
 </head>
 
 <body>
-
-<div class="div" v-for="plante in records" :key="plante.fields.famille">
-    {{ plante.fields.famille }}
+<div id="main" class="div">
+    <div class="div" v-for="plante in records" :key="plante.fields.famille">
+        {{ plante.fields.famille }}
+    </div>
 </div>
 
-<script src="https://unpkg.com/vue@3%22%3E"></script>
-<script src="https://unpkg.com/axios/dist/axios.min.js%22%3E"></script>
+<script src="https://unpkg.com/vue@3"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
 <script>
     const demo = Vue.createApp({
@@ -51,7 +52,7 @@
         methods: {
             fetchDataAsync: async function () {
                 try {
-                    const response = await axios.get("https://data.nantesmetropole.fr/api/records/1.0/search/?dataset=244400404_collection-vegetale-nantes&q=&rows=10&facet=famille&facet=genre&facet=nom_du_site&facet=espece")
+                    const response = await axios.get("https://data.nantesmetropole.fr/api/records/1.0/search/?dataset=244400404_collection-vegetale-nantes&q=&rows=100&facet=famille&facet=genre&facet=nom_du_site&facet=espece")
                     console.log(response.data)
                     this.records = response.data.records
                 } catch (error) {
